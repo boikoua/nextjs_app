@@ -14,6 +14,7 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
+      <h2 className="header">React</h2>
       <ul>
         {courses.lessons.map((lesson) => {
           return (
