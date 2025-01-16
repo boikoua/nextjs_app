@@ -14,3 +14,9 @@
 .link:hover {
   text-shadow: 5px 5px 10px rgb(63, 63, 63);
 }
+
+.pagination {
+  display: flex;
+  gap: 20px;
+  font-size: 22px;
+}
