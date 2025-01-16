@@ -1,0 +1,16 @@
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 22px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease-in;
+}
+
+.link:hover {
+  text-shadow: 5px 5px 10px rgb(63, 63, 63);
+}
