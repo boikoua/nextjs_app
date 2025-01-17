@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './page.module.scss';
 
 const Home = () => {
@@ -13,19 +12,6 @@ const Home = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore,
           id.
         </p>
-
-        <nav>
-          <ul style={{ listStyle: 'none' }}>
-            <li>
-              <Link
-                href="/about"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                About Us
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   );
