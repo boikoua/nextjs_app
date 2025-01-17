@@ -1,52 +1,95 @@
-import Link from 'next/link';
-import { getAllArticles } from './(server)/api';
-import styles from './page.module.css';
-import { ROUTING } from './routing';
-const ARTICLES_PER_PAGE = 10;
+import Image from "next/image";
+import styles from "./page.module.css";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Record<string, string>;
-}) {
-  const allArticles = await getAllArticles();
-
-  const page = Number.parseInt(searchParams['page'] ?? 1);
-  const articles = allArticles.slice(
-    (page - 1) * ARTICLES_PER_PAGE,
-    page * ARTICLES_PER_PAGE
-  );
-
-  const showArticles = articles.map((article) => (
-    <li key={article.name}>
-      <Link className={styles.link} href={ROUTING.article(article.name)}>
-        {article.header}
-      </Link>
-    </li>
-  ));
-
-  const prevPageURL = {
-    search: new URLSearchParams({
-      page: (page - 1 ? page - 1 : 1).toString(),
-    }).toString(),
-  };
-
-  const nextPageURL = {
-    search: new URLSearchParams({
-      page: (page + 1).toString(),
-    }).toString(),
-  };
-
+export default function Home() {
   return (
-    <>
-      <h1>Усі статті мого блогу </h1>
-      <ul className={styles.items}>{showArticles}</ul>
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <Image
+          className={styles.logo}
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <ol>
+          <li>
+            Get started by editing <code>src/app/page.tsx</code>.
+          </li>
+          <li>Save and see your changes instantly.</li>
+        </ol>
 
-      <div className={styles.pagination}>
-        <Link href={prevPageURL}>Prev</Link>
-
-        <Link href={nextPageURL}>Next</Link>
-      </div>
-    </>
+        <div className={styles.ctas}>
+          <a
+            className={styles.primary}
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className={styles.logo}
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={20}
+              height={20}
+            />
+            Deploy now
+          </a>
+          <a
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.secondary}
+          >
+            Read our docs
+          </a>
+        </div>
+      </main>
+      <footer className={styles.footer}>
+        <a
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          Learn
+        </a>
+        <a
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/window.svg"
+            alt="Window icon"
+            width={16}
+            height={16}
+          />
+          Examples
+        </a>
+        <a
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Go to nextjs.org →
+        </a>
+      </footer>
+    </div>
   );
 }
