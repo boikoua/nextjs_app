@@ -42,6 +42,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
       </head>
       <body className={`${nunito.variable} ${inter.variable}`}>
         <div className="wrapper">
