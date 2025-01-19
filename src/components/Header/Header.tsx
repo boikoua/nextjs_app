@@ -1,3 +1,4 @@
+import Logo from '../Logo/Logo';
 import Navigation from '../Navigation';
 import styles from './Header.module.scss';
 
@@ -6,7 +7,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className="container">
         <div className={styles.wrapper}>
-          <h2>Logo</h2>
+          <Logo text="Header Logo" />
           <Navigation />
         </div>
       </div>
